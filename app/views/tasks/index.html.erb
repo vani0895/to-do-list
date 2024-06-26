@@ -1,0 +1,24 @@
+<div class="container p-5">
+  <h3 class="mb-0">My Tasks</h3>
+  <%= link_to "Create a new task", new_task_path, class: "btn btn-primary" %>
+</div>
+  <div class="row">
+    <% @tasks.each do |t| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to tasks_path(t), class:"text-decoration-none" do %>
+            <%= t.title %>
+            <%= t.completed %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div data-toggle-target="togglableElement" class="d-none">
+  <h3>Create a new task</h3>
+    <%= simple_form_for @task do |f| %>
+    <%= f.input :title, placeholder: 'Buy groceries' %>
+    <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+   <%= link_to 'Back', tasks_path %>
+</div>
+<button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new task</button>

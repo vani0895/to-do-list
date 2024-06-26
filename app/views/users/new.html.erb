@@ -1,0 +1,10 @@
+<div class="container p-5">
+  <div class="row">
+    <h3>Create your account</h3>
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :first_name, placeholder: 'Name' %>
+        <%= f.input :last_name, placeholder: 'Name' %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+  </div>
+</div>
